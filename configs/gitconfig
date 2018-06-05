@@ -1,0 +1,6 @@
+[user]
+	email = umang.18sep@gmail.com
+	name = umang
+[core]
+	editor = vim
+	excludesfile = /home/umang/.gitignore
