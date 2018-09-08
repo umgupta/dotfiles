@@ -118,7 +118,7 @@ function add_path(){
     fi
 }
 
-
+export TERM=xterm-256color
 alias juphub='jupyterhub --config ~/.jupyter/jupyterhub_config.py --port 20000'
 alias a=clear
 alias q=exit
