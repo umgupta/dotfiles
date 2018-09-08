@@ -7,8 +7,7 @@ export ZSH=/home/umang/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="blinks"
-ZSH_THEME="af-magic"
+ZSH_THEME="avit"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,22 +55,33 @@ plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 # modify af-magic prompt
-
-PROMPT='$FG[105] ------------------------------------------------------------%{$reset_color%}
-$FG[032]%~\
-$(git_prompt_info) \
-$FG[105]%(!.#.»)%{$reset_color%} '
-# color vars
-eval my_color='$FG[105]'
-
-# right prompt
-if type "virtualenv_prompt_info" > /dev/null
+if [ $ZSH_THEME = "af-magic" ];
 then
-	RPROMPT='$(virtualenv_prompt_info)$my_color%n@%m%{$reset_color%}%'
-else
-	RPROMPT='$my_color%n@%m%{$reset_color%}%'
+    PROMPT='$FG[105] ------------------------------------------------------------%{$reset_color%}
+    $FG[032]%~\
+    $(git_prompt_info) \
+    $FG[105]%(!.#.»)%{$reset_color%} '
+    ## color vars
+    eval my_color='$FG[105]'
+
+    # right prompt
+    if type "virtualenv_prompt_info" > /dev/null
+    then
+    	RPROMPT='$(virtualenv_prompt_info)$my_color%n@%m%{$reset_color%}%'
+    else
+    	RPROMPT='$my_color%n@%m%{$reset_color%}%'
+    fi
 fi
 
+# modify avit theme; this is more smart and pretty 
+if [ $ZSH_THEME = "avit" ];
+then 
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+    PROMPT='
+$(_user_host)${_current_dir}
+%{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '  
+    RPROMPT='%{$(echotc UP 1)%}$(virtualenv_prompt_info) ($CONDA_DEFAULT_ENV) $(_git_time_since_commit) $(git_prompt_status) $(git_prompt_info) ${_return_status}%{$(echotc DO 1)%}'
+fi 
 
 # User configuration
 
@@ -101,6 +111,14 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+function add_path(){
+    if [[ -d "$1" ]]; 
+    then
+        export PATH=$PATH:"$1"
+    fi
+}
+
+
 alias juphub='jupyterhub --config ~/.jupyter/jupyterhub_config.py --port 20000'
 alias a=clear
 alias q=exit
@@ -116,16 +134,24 @@ alias pbpaste='xclip -selection clipboard -o'
 
 ## anaconda
 if [[ -f /home/umang/.anaconda/bin/activate ]] then 
-alias conda-activate='source /home/umang/.anaconda/bin/activate'
-alias conda-deactivate='source /home/umang/.anaconda/bin/deactivate'
+    # anaconda adds ugly env name on each line, to feel anaconda we add and remove env name here
+    function conda-activate(){
+        PS1_backup=$PS1
+        export PS1="$PS1 (${CONDA_DEFAULT_ENV})"
+        source /home/umang/.anaconda/bin/activate
+        export PS1="$PS1_backup"    
+    }
+    #alias conda-activate='source /home/umang/.anaconda/bin/activate'
+    alias conda-deactivate='source /home/umang/.anaconda/bin/deactivate'
 fi 
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH=$PATH:~/.local/bin:/usr/bin:/snap/bin
+add_path "/snap/bin"
+add_path "~/.local/bin"
+add_path "~/bin" 
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -133,8 +159,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Gurobi related
 if [[ -d /opt/gurobi752/linux64 ]] then 
-export GUROBI_HOME=/opt/gurobi752/linux64
-export PATH=$PATH:$GUROBI_HOME/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GUROBI_HOME/lib
-export GRB_LICENSE_FILE=/home/umang/.gurobi.license/gurobi.lic
+    export GUROBI_HOME=/opt/gurobi752/linux64
+    export PATH=$PATH:$GUROBI_HOME/bin
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GUROBI_HOME/lib
+    export GRB_LICENSE_FILE=/home/umang/.gurobi.license/gurobi.lic
 fi
+

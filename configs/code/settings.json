@@ -36,7 +36,7 @@
     "python.linting.lintOnSave": true,
     "python.linting.enabled": true,
     "python.pythonPath": "python3",
-    "python.linting.pylintEnabled": false,
+    "python.linting.pylintEnabled": true,
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
         "*.bbl",
@@ -81,4 +81,6 @@
     "markdown-preview-enhanced.breakOnSingleNewLine": false,
     "markdown-preview-enhanced.usePandocParser": true,
     "pandoc.pdfOptString": "--variable urlcolor=cyan",
+    "editor.fontWeight": "700",
+    "[python]": {},
 }
