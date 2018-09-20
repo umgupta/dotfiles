@@ -83,4 +83,13 @@
     "pandoc.pdfOptString": "--variable urlcolor=cyan",
     "editor.fontWeight": "700",
     "[python]": {},
+    "todo-tree.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "todo-tree.customHighlight": {
+        "TODO": {},
+        "FIXME": {}
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
 }

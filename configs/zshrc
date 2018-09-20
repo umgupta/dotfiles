@@ -76,7 +76,7 @@ fi
 # modify avit theme; this is more smart and pretty 
 if [ $ZSH_THEME = "avit" ];
 then 
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
     PROMPT='
 $(_user_host)${_current_dir}
 %{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '  
