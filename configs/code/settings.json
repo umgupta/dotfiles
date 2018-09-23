@@ -9,7 +9,7 @@
         "**/__pycache__": true,
         "**/node_modules": true,
         "**/.vscode": true,
-        "**.pyc": true
+        "**/*.pyc": true
     },
     "window.zoomLevel": 0,
     "workbench.activityBar.visible": true,
