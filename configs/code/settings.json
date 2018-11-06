@@ -15,17 +15,14 @@
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.enablePreview": false,
-    "workbench.iconTheme": "vscode-great-icons",
-    "editor.fontFamily": "'Fira Code Mono', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
     "workbench.statusBar.feedback.visible": false,
     "editor.trimAutoWhitespace": false,
-    "editor.fontLigatures": true,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "editor.minimap.maxColumn": 80,
     "editor.rulers": [
         80
     ],
-    "editor.wordWrap": "wordWrapColumn",
     "explorer.openEditors.visible": 9,
     "editor.formatOnSave": true,
     "python.formatting.autopep8Args": [
@@ -61,9 +58,6 @@
         "*.synctex.gz",
         "*.out"
     ],
-    "markdown-preview-enhanced.mermaidTheme": "mermaid.dark.css",
-    "markdown-preview-enhanced.previewTheme": "solarized-light.css",
-    "markdown-preview-enhanced.revealjsTheme": "black.css",
     "markdownlint.config": {
         "MD013": false,
         "MD032": false,
@@ -92,4 +86,11 @@
         "FIXME": {}
     },
     "latex-workshop.view.pdf.viewer": "tab",
+    "workbench.colorTheme": "Material Night Eighties",
+    "workbench.iconTheme": "eq-material-theme-icons-ocean",
+    "editor.fontLigatures": true,
+    "latex-workshop.message.update.show": false,
+    "terminal.integrated.rendererType": "dom",
+    "python.formatting.provider": "black",
+    "html.format.wrapLineLength": 80,
 }

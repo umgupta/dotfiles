@@ -8,6 +8,7 @@ export ZSH=/home/umang/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="avit"
+#ZSH_THEME="af-magic"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -79,7 +80,7 @@ then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
     PROMPT='
 $(_user_host)${_current_dir}
-%{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '  
+%{$fg[$CARETCOLOR]%}>%{$resetcolor%} '  
     RPROMPT='%{$(echotc UP 1)%}$(virtualenv_prompt_info) $CONDA_DEFAULT_ENV $(_git_time_since_commit) $(git_prompt_status) $(git_prompt_info) ${_return_status}%{$(echotc DO 1)%}'
 fi 
 
@@ -149,10 +150,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-add_path "/snap/bin"
-add_path "~/.local/bin"
-add_path "~/bin" 
+add_path /snap/bin
+add_path ~/.local/bin
+add_path ~/bin 
 
+NLTK_DATA=~/data/nltk
+mkdir -p $NLTK_DATA
+export NLTK_DATA=$NLTK_DATA
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
