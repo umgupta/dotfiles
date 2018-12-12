@@ -76,7 +76,6 @@
     "markdown-preview-enhanced.usePandocParser": true,
     "pandoc.pdfOptString": "--variable urlcolor=cyan",
     "editor.fontWeight": "700",
-    "[python]": {},
     "todo-tree.defaultHighlight": {
         "foreground": "green",
         "type": "none"
@@ -86,11 +85,97 @@
         "FIXME": {}
     },
     "latex-workshop.view.pdf.viewer": "tab",
-    "workbench.colorTheme": "Material Night Eighties",
-    "workbench.iconTheme": "eq-material-theme-icons-ocean",
+    "workbench.colorTheme": "Enki - Rainbow",
+    "workbench.iconTheme": "enki",
     "editor.fontLigatures": true,
     "latex-workshop.message.update.show": false,
-    "terminal.integrated.rendererType": "dom",
     "python.formatting.provider": "black",
     "html.format.wrapLineLength": 80,
+    "editor.wordBasedSuggestions": false,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [{
+                "scope": "text.html.markdown.journal.task.open.bullet",
+                "settings": {
+                    "foreground": "#FFFF00"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.open.marker",
+                "settings": {
+                    "foreground": "#FFFF00"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.open.keyword",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.open.text",
+                "settings": {}
+            },
+            {
+                "scope": "text.html.markdown.journal.task.completed.keyword",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.completed.marker",
+                "settings": {
+                    "foreground": "#AAAAAA"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.completed.text",
+                "settings": {
+                    "foreground": "#AAAAAA"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.completed.bullet",
+                "settings": {
+                    "foreground": "#FFFF00"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.memo.keyword",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.memo.bullet",
+                "settings": {
+                    "foreground": "#FFFF00"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.scope",
+                "settings": {
+                    "foreground": "#FFFF00"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.link.keyword",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.link.bullet",
+                "settings": {
+                    "foreground": "#FFFF00"
+                }
+            }
+        ]
+    },
+    "markdown-preview-enhanced.codeBlockTheme": "one-dark.css",
+    "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+    "markdown-preview-enhanced.enableTypographer": true,
+    "journal.dev": true,
+    "window.titleBarStyle": "custom",
+    "pydocs.style": "numpy",
+    "terminal.integrated.rendererType": "dom",
 }

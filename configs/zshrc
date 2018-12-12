@@ -80,7 +80,7 @@ then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
     PROMPT='
 $(_user_host)${_current_dir}
-%{$fg[$CARETCOLOR]%}>%{$resetcolor%} '  
+%{$fg[$CARETCOLOR]%}|%{$resetcolor%} '  
     RPROMPT='%{$(echotc UP 1)%}$(virtualenv_prompt_info) $CONDA_DEFAULT_ENV $(_git_time_since_commit) $(git_prompt_status) $(git_prompt_info) ${_return_status}%{$(echotc DO 1)%}'
 fi 
 
@@ -119,7 +119,6 @@ function add_path(){
     fi
 }
 
-export TERM=xterm-256color
 alias juphub='jupyterhub --config ~/.jupyter/jupyterhub_config.py --port 20000'
 alias a=clear
 alias q=exit
@@ -157,6 +156,8 @@ add_path ~/bin
 NLTK_DATA=~/data/nltk
 mkdir -p $NLTK_DATA
 export NLTK_DATA=$NLTK_DATA
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -168,3 +169,5 @@ if [[ -d /opt/gurobi752/linux64 ]] then
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GUROBI_HOME/lib
     export GRB_LICENSE_FILE=/home/umang/.gurobi.license/gurobi.lic
 fi
+#https://github.com/zsh-users/zsh-autosuggestions/issues/229
+export TERM=xterm-256color
