@@ -1,0 +1,91 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+# util to add path
+function add_path(){
+    if [[ -d "$1" ]]; 
+    then
+        export PATH=$PATH:"$1"
+    fi
+}
+
+# This makes terminal loading slow, therefore we have a function this
+function load_nvm () { 
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+# get rid of default prompt info
+export VIRTUAL_ENV_DISABLE_PROMPT=TRUE
+ 
+#export POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+#export POWERLEVEL9K_SHORTEN_DIR_STRATEGY=truncate
+if [[ -z $SSH_CONNECTION ]] 
+then
+    export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir)
+    export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv vcs)
+fi
+
+
+alias juphub='jupyterhub --config ~/.jupyter/jupyterhub_config.py --port 20000'
+alias a=clear
+alias q=exit
+alias sudo='sudo -E'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ipy=ipython
+alias py=python
+alias open=xdg-open
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+## anaconda
+#if [[ -f /home/umang/.anaconda/bin/activate ]] then 
+#    # anaconda adds ugly env name on each line, to feel anaconda we add and remove env name here
+#    function conda-activate(){
+#        PS1_backup=$PS1
+#        export PS1="$PS1 (${CONDA_DEFAULT_ENV})"
+#        source /home/umang/.anaconda/bin/activate
+#        export PS1="$PS1_backup"    
+#    }
+#    #alias conda-activate='source /home/umang/.anaconda/bin/activate'
+#    alias conda-deactivate='source /home/umang/.anaconda/bin/deactivate'
+#fi 
+
+# Gurobi related
+if [[ -d /opt/gurobi752/linux64 ]] then 
+    export GUROBI_HOME=/opt/gurobi752/linux64
+    export PATH=$PATH:$GUROBI_HOME/bin
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GUROBI_HOME/lib
+    export GRB_LICENSE_FILE=/home/umang/.gurobi.license/gurobi.lic
+fi
+
+
+add_path /snap/bin
+add_path ~/.local/bin
+add_path ~/bin 
+NLTK_DATA=~/data/nltk
+mkdir -p $NLTK_DATA
+export NLTK_DATA=$NLTK_DATA
+export DATA=/home/umang/data
+
+#https://github.com/zsh-users/zsh-autosuggestions/issues/229
+export TERM=xterm-256color
+
+# rust specific
+if [[ -d $HOME/.cargo/ ]] then
+    source $HOME/.cargo/env
+fi
+

@@ -12,22 +12,22 @@ backup_configs(){
 
     \cp ~/.gitconfig $1/gitconfig
     \cp ~/.vim/vimrc $1/vimrc
-    \cp ~/.zshrc $1/zshrc
     \cp ~/.bashrc $1/bashrc
     \cp ~/.tmux.conf $1/tmux.conf
-
+    
+    \mkdir -p $1/prezto_runcoms
+    \cp -r ~/.zprezto/runcoms/* $1/prezto_runcoms
+ 
     \mkdir -p $1/code
     \cp ~/.config/Code/User/settings.json $1/code/settings.json
 
     \cp ~/.keras/keras.json $1/keras.json
     \cp ~/.jupyter/jupyterhub_config.py $1/jupyterhub_config.py
-
 }
 
 restore_configs(){
     \cp $1/gitconfig ~/.gitconfig
     \mkdir -p ~/.vim && \cp $1/vimrc ~/.vim/
-    \cp $1/zshrc ~/.zshrc
     \cp $1/bashrc ~/.bashrc
     \cp $1/tmux.conf ~/.tmux.conf
 
@@ -35,7 +35,8 @@ restore_configs(){
 
     \mkdir -p ~/.keras && \cp $1/keras.json ~/.keras/keras.json
     \mkdir -p ~/.jupyter && \cp $1/jupyterhub_config.py ~/.jupyter/
-}
+    \mkdir -p ~/.zprezto/runcoms && \cp $1/prezto_runcoms/* ~/.zprezto/runcoms 
+}   
 
 if [ $# -ne 1 ]; then
     usage
@@ -46,7 +47,7 @@ if [[ $1 == "backup" ]]; then
     echo "backing up to $DIR/configs"
     rm -rf $DIR/configs && mkdir -p $DIR/configs && backup_configs $DIR/configs
 elif [[ $1 == "restore" ]]; then
-    echo "backing up to $DIR"
+    echo "backing up to $DIR/.backup for safety"
     rm -rf .backup && mkdir -p $DIR/.backup && backup_configs $DIR/.backup
 
     echo "restoring from $DIR/configs"
