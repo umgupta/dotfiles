@@ -13,8 +13,8 @@
     },
     "window.zoomLevel": 0,
     "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "Monokai",
-    "workbench.iconTheme": null,
+    "workbench.colorTheme": "ƒ - Darcula - Operator Mono/Italic",
+    "workbench.iconTheme": "ayu",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.enablePreview": false,
@@ -204,6 +204,9 @@
     ],
     "python.linting.lintOnSave": true,
     "python.pythonPath": "python3",
-    "python.formatting.provider": "black",
     "python.linting.enabled": true,
+    "python.formatting.blackArgs": [
+        "-l 80"
+    ],
+    "python.formatting.provider": "black",
 }

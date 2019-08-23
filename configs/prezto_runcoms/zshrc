@@ -89,3 +89,10 @@ if [[ -d $HOME/.cargo/ ]] then
     source $HOME/.cargo/env
 fi
 
+function breakpoint_on (){
+    export PYTHONBREAKPOINT=ipdb.set_trace
+}
+
+function breakpoint_off () {
+    export PYTHONBREAKPOINT=0
+}
