@@ -14,6 +14,7 @@ backup_configs(){
     \cp ~/.vim/vimrc $1/vimrc
     \cp ~/.bashrc $1/bashrc
     \cp ~/.tmux.conf $1/tmux.conf
+    \cp ~/.latexmkrc $1/latexmkrc
     
     \mkdir -p $1/prezto_runcoms
     \cp -r ~/.zprezto/runcoms/* $1/prezto_runcoms
@@ -27,6 +28,7 @@ backup_configs(){
 
 restore_configs(){
     \cp $1/gitconfig ~/.gitconfig
+    \cp $1/latexmkrc ~/.latexmkrc
     \mkdir -p ~/.vim && \cp $1/vimrc ~/.vim/
     \cp $1/bashrc ~/.bashrc
     \cp $1/tmux.conf ~/.tmux.conf

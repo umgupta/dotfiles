@@ -13,8 +13,7 @@
     },
     "window.zoomLevel": 0,
     "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "ƒ - Darcula - Operator Mono/Italic",
-    "workbench.iconTheme": "ayu",
+    "workbench.colorTheme": "Ayu Dark Bordered",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.enablePreview": false,
@@ -147,14 +146,18 @@
         "type": "none"
     },
     "todo-tree.customHighlight": {
-        "TODO": {},
-        "FIXME": {},
-        "todo": {},
-        "TO DO": {},
-        "to do": {},
-        "fix me": {},
-        "fixme": {},
-        "FIX ME": {}
+        "TODO": {
+            "icon": "check",
+            "type": "line"
+        },
+        "FIXME": {
+            "icon": "beaker",
+            "type": "line"
+        },
+        "NOTE": {
+            "icon": "pencil",
+            "type": "line"
+        },
     },
     "markdownlint.config": {
         "MD013": false,
@@ -182,13 +185,11 @@
     "markdown-preview-enhanced.enableTypographer": true,
     "markdown-preview-enhanced.codeBlockTheme": "auto.css",
     "markdown.preview.fontFamily": "'Flottflott'",
-    "markdown-preview-enhanced.printBackground": true,
     "markdown-preview-enhanced.mathRenderingOnlineService": "https://latex.codecogs.com/svg.latex",
     "markdown-preview-enhanced.usePandocParser": true,
     "markdown.preview.breaks": true,
     "markdown-preview-enhanced.liveUpdate": false,
     "markdown-preview-enhanced.pandocMarkdownFlavor": "",
-    "markdown-preview-enhanced.previewTheme": "monokai.css",
     "markdown-preview-enhanced.enableHTML5Embed": true,
     "markdown-preview-enhanced.pandocArguments": "--filter=/home/umang/.local/share/pandoc/pandoc-amsthm/bin/pandoc-amsthm.py, --template=../../../../../home/umang/.local/share/pandoc/pandoc-amsthm/template/pandoc-amsthm",
     "pandoc.pdfOptString": "--filter=/home/umang/.local/share/pandoc/pandoc-amsthm/bin/pandoc-amsthm.py --template=/home/umang/.local/share/pandoc/pandoc-amsthm/template/pandoc-amsthm --latex-engine=xelatex",
@@ -209,4 +210,62 @@
         "-l 80"
     ],
     "python.formatting.provider": "black",
+    "todo-tree.tags": [
+        "TODO",
+        "FIXME",
+        "NOTE"
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "type": "line"
+        },
+        "FIXME": {
+            "icon": "beaker",
+            "type": "line"
+        },
+        "NOTE": {
+            "icon": "pencil",
+            "type": "line"
+        }
+    },
+    "todo-tree.highlights.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "todo-tree.general.tags": [
+        "TODO",
+        "FIXME",
+        "NOTE"
+    ],
+    "markdown-preview-enhanced.printBackground": true,
+    "markdown-preview-enhanced.previewTheme": "vue.css",
+    "latex-workshop.chktex.args.root": [
+        "-wall",
+        "-n22",
+        "-n30",
+        "-e16",
+        "-q",
+        "-n46"
+    ],
+    "latex-workshop.chktex.args.active": [
+        "-wall",
+        "-n22",
+        "-n30",
+        "-e16",
+        "-q",
+        "-n46"
+    ],
+    "python.linting.pylintCategorySeverity.error": "Warning",
+    "python.linting.pylintCategorySeverity.fatal": "Hint",
+    "python.linting.pylintCategorySeverity.warning": "Hint",
+    "python.linting.pylintUseMinimalCheckers": false,
+    "workbench.iconTheme": "simple-icons",
+    "todo-tree.highlights.enabled": false,
+    "files.autoSave": "afterDelay",
+    "editor.renderWhitespace": "all",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.latex.autoBuild.run": "never",
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
 }

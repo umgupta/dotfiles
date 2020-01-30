@@ -1,0 +1,4 @@
+# https://tex.stackexchange.com/questions/28952/pdf-reader-on-linux-capable-of-continuous-updating
+# https://superuser.com/questions/707483/how-do-i-use-latexmk-with-mupdf-as-the-pdf-previewer
+$pdf_update_method = 2;
+$pdf_previewer = 'evince';
