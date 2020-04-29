@@ -124,10 +124,10 @@ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 # smiley is good too
 if [[ -n $SSH_CONNECTION ]]
 then
-    zstyle ':prezto:module:prompt' theme 'smiley'
+    zstyle ':prezto:module:prompt' theme 'steeef'
 else
     zstyle ':prezto:module:prompt' theme 'sorin'
-fi 
+fi
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
 # for longer or 'full' (with '~' expansion) for even longer prompt display.
